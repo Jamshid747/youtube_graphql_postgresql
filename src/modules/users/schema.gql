@@ -1,0 +1,24 @@
+type Mutation {
+    login(username: String! password: String!): AuthResponse!
+    register(
+        username: String!
+        password: String!
+        profileImg: Upload!
+    ): AuthResponse! 
+}
+
+
+type Query {
+    users(
+        pagination: Pagination = {}
+    ): [User!]!
+    user(userId: ID!): User
+}
+
+type User {
+    user_id: ID!
+    user_name: String!
+    user_profileimg: String!
+    user_created_at: String!
+    user_deleted_at: String
+}

@@ -1,0 +1,35 @@
+type Mutation {
+    addVideo(
+        video_name: String!
+        video: Upload!
+    ): Response!
+
+    changeVideo(
+        video_name: String!
+        video_id: String!
+    ): Response!
+
+    deleteVideo(video_id: String!): Response!
+}
+
+type Query {
+    videos(
+        pagination: Pagination = {}
+        search: String
+    ): [Video!]!
+
+    userVideos(userId: ID!): [Video]
+
+    adminVideos(userId: ID!): [Video]
+}
+
+type Video {
+    video_id: ID!
+    user_id: ID!
+    video_name: String!
+    video_link: String!
+    video_size: Int!
+    video_mimetype: String!
+    video_created_at: String!
+    video_deleted_at: String
+}
